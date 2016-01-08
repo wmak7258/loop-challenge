@@ -67,7 +67,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         for item in values
         {
             output += item
-            if output 
+            if item != (values.last)
+            {
+                output += ","
+            }
         }
         /***************************************************
         * End Your Code Here For Stretch #1
@@ -79,11 +82,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func stretch2ButtonPressed(sender: UIButton) {
         resignFields()
         setValues()
-        let maximum = values[0]
+        var valuesAsInt = values as Int
+        for item in values
+        {
+            valuesAsInt.append(Int(item)!)
+        }
+        var maximum = valuesAsInt[0]
         /***************************************************
         * Start Your Code Here For Stretch #2
         ***************************************************/
-        
+        maximum = values.maxElement()!
         /***************************************************
         * End Your Code Here For Stretch #2
         ***************************************************/
