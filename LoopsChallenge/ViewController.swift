@@ -18,7 +18,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var myTextView: UITextView!
     
-    var values = [String]()
+    var values = [Int]()
     var output = ""
     
     override func viewDidLoad() {
@@ -27,7 +27,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     func setValues()
     {
-        values = [textField1.text!,textField2.text!,textField3.text!,textField4.text!,textField5.text!]
+        values = [Int(textField1.text!)!,Int(textField2.text!)!,Int(textField3.text!)!,Int(textField4.text!)!,Int(textField5.text!)!]
     }
     
     func resignFields()
@@ -47,6 +47,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         /***************************************************
         * Start Your Code Here For MVP
         ***************************************************/
+        
         for item in values
         {
             output += (item + " ")
@@ -82,12 +83,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func stretch2ButtonPressed(sender: UIButton) {
         resignFields()
         setValues()
-        var valuesAsInt = values as Int
-        for item in values
-        {
-            valuesAsInt.append(Int(item)!)
-        }
-        var maximum = valuesAsInt[0]
+        
+        var maximum = values[0]
         /***************************************************
         * Start Your Code Here For Stretch #2
         ***************************************************/
