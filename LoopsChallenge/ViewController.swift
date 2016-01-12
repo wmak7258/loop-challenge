@@ -18,7 +18,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var myTextView: UITextView!
     
-    var values = [Int]()
+    var values = [String]()
     var output = ""
     
     override func viewDidLoad() {
@@ -27,7 +27,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     func setValues()
     {
-        values = [Int(textField1.text!)!,Int(textField2.text!)!,Int(textField3.text!)!,Int(textField4.text!)!,Int(textField5.text!)!]
+        
+        values = [textField1.text!, textField2.text!, textField3.text!, textField4.text!, textField5.text!]
     }
     
     func resignFields()
@@ -50,7 +51,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         for item in values
         {
-            output += (item + " ")
+            output += item
+            
             //output = output + item
         }
         /***************************************************
@@ -84,15 +86,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
         resignFields()
         setValues()
         
-        var maximum = values[0]
+        let maximum = values[0]
         /***************************************************
         * Start Your Code Here For Stretch #2
         ***************************************************/
-        maximum = values.maxElement()!
+        let intArray = values.map({Int($0)!})
+        var intMaximum: Int? = Int(maximum)
+        intMaximum = intArray.maxElement()!
+        
         /***************************************************
         * End Your Code Here For Stretch #2
         ***************************************************/
-        myTextView.text = "After searching the array, \(maximum) is the largest"
+        myTextView.text = "After searching the array, \(intMaximum) is the largest"
     }
     
     @IBAction func stretch3ButtonPressed(sender: UIButton) {
