@@ -91,7 +91,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         * Start Your Code Here For Stretch #2
         ***************************************************/
         let intArray = values.map({Int($0)!})
-        var intMaximum: Int? = Int(maximum)
+        var intMaximum: Int = Int(maximum)!
         intMaximum = intArray.maxElement()!
         
         /***************************************************
